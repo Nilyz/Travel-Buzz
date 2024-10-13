@@ -14,30 +14,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Llama a la función correcta registrarUsuario() en lugar de register()
     if (registrarUsuario($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $sexo, $usuario, $password)) {
-        echo "<p>Registro exitoso. Ahora puedes <a href='login.php'>iniciar sesión</a>.</p>";
+        $message = "<p class='success-message'>Registro exitoso. Ahora puedes <a href='login.php'>iniciar sesión</a>.</p>";
     } else {
-        echo "<p>Error al registrar el usuario. Inténtalo de nuevo.</p>";
+        $message = "<p class='error-message'>Error al registrar el usuario. Inténtalo de nuevo.</p>";
     }
 }
 ?>
 
-<h2>Registro</h2>
-<form method="POST" action="registro.php">
-    <label>Nombre:</label><input type="text" name="nombre" required><br>
-    <label>Apellidos:</label><input type="text" name="apellidos" required><br>
-    <label>Email:</label><input type="email" name="email" required><br>
-    <label>Teléfono:</label><input type="text" name="telefono" required><br>
-    <label>Fecha de Nacimiento:</label><input type="date" name="fecha_nacimiento" required><br>
-    <label>Dirección:</label><input type="text" name="direccion"><br>
-    <label>Sexo:</label>
-    <select name="sexo">
-        <option value="M">Masculino</option>
-        <option value="F">Femenino</option>
-        <option value="O">Otro</option>
-    </select><br>
-    <label>Usuario:</label><input type="text" name="usuario" required><br>
-    <label>Contraseña:</label><input type="password" name="password" required><br>
-    <button type="submit">Registrarse</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/headerFooter.css"> 
+    <link rel="stylesheet" href="css/registro.css">
+    <title>Registro</title>
+</head>
+<body>
+    <main>
+    <div class="formCont">
+            <h2>Registro</h2>
+
+            <?php if (isset($message)): ?>
+                <?php echo $message; ?>
+            <?php endif; ?>
+
+            <form method="POST" action="registro.php">
+                <label>Nombre:</label>
+                <input type="text" name="nombre" required>
+
+                <label>Apellidos:</label>
+                <input type="text" name="apellidos" required>
+
+                <label>Email:</label>
+                <input type="email" name="email" required>
+
+                <label>Teléfono:</label>
+                <input type="text" name="telefono" required>
+
+                <label>Fecha de Nacimiento:</label>
+                <input type="date" name="fecha_nacimiento" required>
+
+                <label>Dirección:</label>
+                <input type="text" name="direccion">
+
+                <label>Sexo:</label>
+                <select name="sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="O">Otro</option>
+                </select>
+
+                <label>Usuario:</label>
+                <input type="text" name="usuario" required>
+
+                <label>Contraseña:</label>
+                <input type="password" name="password" required>
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </main>
+
+    
+</body>
+</html>
 
 <?php include 'includes/footer.php'; ?>

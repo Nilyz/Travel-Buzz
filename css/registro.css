@@ -1,0 +1,80 @@
+/* Estilos para la página de registro */
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/paisaje1.jpg');
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formCont {
+    background-color: rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 30%; 
+    text-align: left;
+    margin: 100px 0 100px 0;
+
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em; /* Mantiene el tamaño de fuente */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #007bff; /* Color del borde al hacer foco */
+    outline: none; /* Quita el contorno por defecto */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Botón ocupa todo el ancho */
+    font-size: 1em; /* Tamaño de fuente para el botón */
+}
+
+button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}

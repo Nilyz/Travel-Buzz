@@ -1,0 +1,77 @@
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/paisaje1.jpg');
+    background-size: cover;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Ancho del formulario */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: last baseline;
+    flex-direction: column;
+
+}
+input{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding: 0px 20px 0 20px;
+    font-size: 1em;
+}
+
+label {
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+    color: #555;
+}
+
+
+button {
+    margin-top: 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 16px 10px 16px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 20px;
+}

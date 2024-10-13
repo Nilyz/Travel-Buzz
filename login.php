@@ -1,6 +1,7 @@
 <?php
 // login.php
-require_once 'functions/auth.php'; // Incluir el archivo donde se define iniciarSesion()
+require_once 'functions/auth.php'; 
+include 'includes/header.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
@@ -24,23 +25,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/headerFooter.css"> 
+    <link rel="stylesheet" href="css/sesion.css">
+    <title>Iniciar Sesión</title>
 </head>
 <body>
-    <h1>Iniciar Sesión</h1>
+    <div class="main-container">
+        <div class="login-form">
+            <h1>Iniciar Sesión</h1>
 
-    <?php if (isset($error)): ?>
-        <p style="color:red;"><?php echo $error; ?></p>
-    <?php endif; ?>
+            <?php if (isset($error)): ?>
+                <p class="error-message"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-    <form action="login.php" method="POST">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
+            <form action="login.php" method="POST">
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="usuario" required>
 
-        <label>Contraseña:</label>
-        <input type="password" name="password" required>
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" required>
 
-        <button type="submit">Iniciar Sesión</button>
-    </form>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

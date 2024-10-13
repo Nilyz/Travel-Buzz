@@ -1,7 +1,6 @@
 <?php
 session_start();
-include 'db.php'; 
-include 'includes/header.php';
+include 'functions/db.php';
 
 // Asegúrate de que el usuario esté logueado
 if (!isset($_SESSION['idUser'])) {
@@ -16,15 +15,41 @@ $stmt->execute([$idUser]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<h1>Perfil de <?php echo htmlspecialchars($user['nombre']); ?></h1>
-<p>Nombre: <?php echo htmlspecialchars($user['nombre']); ?></p>
-<p>Apellidos: <?php echo htmlspecialchars($user['apellidos']); ?></p>
-<p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
-<p>Teléfono: <?php echo htmlspecialchars($user['telefono']); ?></p>
-<p>Fecha de Nacimiento: <?php echo htmlspecialchars($user['fecha_nacimiento']); ?></p>
-<p>Dirección: <?php echo htmlspecialchars($user['direccion']); ?></p>
-<p>Sexo: <?php echo htmlspecialchars($user['sexo']); ?></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<?php
-include 'includes/footer.php';
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/headerFooter.css"> 
+    <link rel="stylesheet" href="css/perfil.css">
+    <title>Document</title>
+</head>
+
+<body>
+<?php include 'includes/header.php';?>
+<main>
+    <div class="fondo"></div>
+    <div class="infoCont">
+        <h1>Perfil de <?php echo htmlspecialchars($user['nombre']); ?></h1>
+        <div class="userInfo">
+            <p>Nombre: <?php echo htmlspecialchars($user['nombre']); ?></p>
+            <p>Apellidos: <?php echo htmlspecialchars($user['apellidos']); ?></p>
+            <p>Email: <?php echo htmlspecialchars($user['email']); ?></p>
+            <p>Teléfono: <?php echo htmlspecialchars($user['telefono']); ?></p>
+            <p>Fecha de Nacimiento: <?php echo htmlspecialchars($user['fecha_nacimiento']); ?></p>
+            <p>Dirección: <?php echo htmlspecialchars($user['direccion']); ?></p>
+            <p>Sexo: <?php echo htmlspecialchars($user['sexo']); ?></p>
+        </div>
+        
+    </div>
+
+</main>
+    
+
+    <?php
+    include 'includes/footer.php';
+    ?>
+</body>
+
+</html>

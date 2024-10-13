@@ -3,7 +3,6 @@
 
 
 include '../functions/auth.php';
-require_once '../db.php'; 
 include '../functions/users.php';
 include '../includes/header.php';
 

@@ -1,0 +1,112 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    
+}
+
+
+.landing{
+    width: 100%;
+    height: 100vh;
+    background: url('../img/paisaje1.jpg') ;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.landing h1{
+    font-size: 3em;
+    margin: 0;
+    color: white;
+    margin-bottom: 30px;
+}
+.landing p{
+    font-size: 1.5em;
+    color: white;
+}
+.landing button{
+    padding: 20px 40px;
+    background: #1d1e1e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+.landing button a{
+    color: white;
+    text-decoration: none;
+}
+
+#about {
+    width: 80%;
+    height: 450px;
+    margin: auto;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.about_text{
+    width: 50%;
+    padding: 40px;
+    font-size: 1.2em;
+    text-align: justify;
+}
+#about img {
+    width: 40%;
+    height: 100%;
+    background-color: white;
+}
+
+#news{
+    width: 100%;
+    height: 550px;
+    margin: auto;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/paisaje1.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 100px 40px 100px;
+    margin-top: 100px;
+}
+#news h2{
+    margin-bottom: 50px;
+    font-size: 1.5em;
+}
+
+article{
+    height: 80%;
+    padding-right: 30px;
+    display: flex;
+    backdrop-filter: blur(5px);
+}
+article img{
+    width: 45%;
+    height: 100%;
+    margin: auto;
+}
+.news_Text{
+    width: 50%;
+    padding: 40px;
+    font-size: 1em;
+}
+#news button{
+    padding: 20px 40px;
+    margin-top: 50px;
+    background-color: rgb(242, 230, 67);
+}
+#news button a{
+    color:rgb(41, 41, 37) ;
+    font-size: 1.1em;
+}

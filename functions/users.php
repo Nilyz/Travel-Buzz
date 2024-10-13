@@ -1,6 +1,6 @@
 <?php
 // functions/users.php
-include '../db.php'; // Asegúrate de que la ruta sea correcta
+include 'db.php'; // Asegúrate de que la ruta sea correcta
 
 function getAllUsers() {
     global $pdo;
