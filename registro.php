@@ -1,5 +1,6 @@
 <?php
-include 'includes/header.php';
+
+include 'functions/users.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
@@ -11,9 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sexo = $_POST['sexo'];
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
+    $rol = 'user'; // rol predeterminado
 
-    // Llama a la función correcta registrarUsuario() en lugar de register()
-    if (registrarUsuario($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $sexo, $usuario, $password)) {
+
+    if (createUser($nombre, $apellidos, $email, $telefono, $fecha_nacimiento, $direccion, $sexo, $usuario, $password, $rol)) {
         $message = "<p class='success-message'>Registro exitoso. Ahora puedes <a href='login.php'>iniciar sesión</a>.</p>";
     } else {
         $message = "<p class='error-message'>Error al registrar el usuario. Inténtalo de nuevo.</p>";
@@ -26,13 +28,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/headerFooter.css"> 
+    <link rel="stylesheet" href="css/headerFooter.css">
     <link rel="stylesheet" href="css/registro.css">
-    <title>Registro</title>
+    <script src="js/header.js" defer></script>
+    <title>Registro | Travel Buzz</title>
 </head>
 <body>
+<?php include 'includes/header.php';?>
     <main>
-    <div class="formCont">
+        <div class="formCont">
             <h2>Registro</h2>
 
             <?php if (isset($message)): ?>
@@ -75,8 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </main>
-
-    
 </body>
 </html>
 

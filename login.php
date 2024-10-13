@@ -1,5 +1,5 @@
 <?php
-// login.php
+
 require_once 'functions/auth.php'; 
 include 'includes/header.php';
 
@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    // Llamar a la función iniciarSesion para validar al usuario
+    // Llamar a la función para validar al usuario
     $user = iniciarSesion($usuario, $password);
 
     if ($user) {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: index.php');
         exit();
     } else {
-        // Mostrar mensaje de error si las credenciales son incorrectas
+
         $error = "Usuario o contraseña incorrectos";
     }
 }
@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/headerFooter.css"> 
     <link rel="stylesheet" href="css/sesion.css">
+    <script src="js/header.js" defer></script>
     <title>Iniciar Sesión</title>
 </head>
 <body>

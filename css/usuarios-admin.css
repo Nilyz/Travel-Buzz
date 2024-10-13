@@ -1,0 +1,117 @@
+
+main{
+    width: 100%;
+    padding-top: 100px;
+    color: white;
+}
+h1{
+    text-align: center;
+    margin: 100px;
+}
+.admin-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 150px;
+}
+
+.form-section, .list-section {
+    background-color: #3c3e3e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+button {
+    background-color: #F1C40F;
+    color: #010101;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease; 
+}
+
+button:hover {
+    background-color: #1d1e1e;
+    color: #F1C40F;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+
+}
+
+table td{
+    padding: 30px;
+    border-bottom: 1px solid white;
+}
+table th {
+    color: #010101;
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.edit-btn, .delete-btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.edit-btn {
+    background-color: #5cb85c;
+}
+
+.edit-btn:hover {
+    background-color: #4cae4c;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

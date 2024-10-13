@@ -1,8 +1,7 @@
 <?php
-// citaciones.php
-include 'functions/auth.php'; // Asegúrate de incluir auth.php para usar isLoggedIn
-include 'functions/appointments.php';
 
+include 'functions/auth.php'; 
+include 'functions/appointments.php'; 
 
 if (!isLoggedIn()) {
     header('Location: login.php');
@@ -16,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['delete_cita'])) {
     $fechaCita = $_POST['fecha_cita'];
     $motivoCita = $_POST['motivo_cita'];
 
-    // Validación básica
     if (!empty($fechaCita) && !empty($motivoCita)) {
         createAppointment($userId, $fechaCita, $motivoCita);
         header('Location: citaciones.php');
@@ -38,23 +36,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_cita'])) {
     }
 }
 
-// Obtener las citas del usuario
+
 $citas = getAppointmentsByUser($userId);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/headerFooter.css"> 
     <link rel="stylesheet" href="css/cita.css">
-    <title>Document</title>
+    <script src="js/header.js" defer></script>
+    <title>Mis Citas</title>
 </head>
 <body>
-<?php include 'includes/header.php';?>
+<?php include 'includes/header.php'; ?>
 <main>
-<h1>Mis Citas</h1>
+    <h1>Mis Citas</h1>
     <div class="formCont">
         <h2>Solicitar Nueva Cita</h2>
         <form action="citaciones.php" method="POST">
@@ -76,7 +75,7 @@ $citas = getAppointmentsByUser($userId);
                         <?php echo htmlspecialchars($cita['motivo_cita']); ?>
                         <form action="citaciones.php" method="POST" style="display:inline;">
                             <input type="hidden" name="delete_cita" value="<?php echo htmlspecialchars($cita['idCita']); ?>">
-                            <button type="submit">Eliminar</button>
+                            <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta cita?');">Eliminar</button>
                         </form>
                     </li>
                 <?php endforeach; ?>
@@ -85,11 +84,8 @@ $citas = getAppointmentsByUser($userId);
             <?php endif; ?>
         </ul>
     </div>
-    
 </main>
 
-<?php
-include 'includes/footer.php';
-?>
+<?php include 'includes/footer.php'; ?>
 </body>
 </html>

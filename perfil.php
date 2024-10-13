@@ -2,7 +2,7 @@
 session_start();
 include 'functions/db.php';
 
-// Asegúrate de que el usuario esté logueado
+// Hay que estar logeado para acceder a esta página
 if (!isset($_SESSION['idUser'])) {
     header('Location: login.php');
     exit();
@@ -23,6 +23,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/headerFooter.css"> 
     <link rel="stylesheet" href="css/perfil.css">
+    <script src="js/header.js" defer></script>
     <title>Document</title>
 </head>
 

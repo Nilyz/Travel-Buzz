@@ -1,20 +1,18 @@
 <?php
-session_start();
-include 'db.php';
 
-// Verifica si el usuario es admin
-if (!isset($_SESSION['idUser']) || $_SESSION['rol'] !== 'admin') {
-    header('Location: index.php');
+include '../functions/auth.php';
+include '../functions/appointments.php';
+
+if (!isLoggedIn() || $_SESSION['rol'] !== 'admin') {
+    header('Location: login.php');
     exit();
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $citaId = $_GET['id'];
 
     // Eliminar cita
-    $sql = "DELETE FROM citas WHERE idCita = ?";
-    $stmt = $pdo->prepare($sql);
-    if ($stmt->execute([$id])) {
+    if (deleteAppointment($citaId)) {
         header('Location: citas-administracion.php'); // Redirige después de eliminar
         exit();
     } else {

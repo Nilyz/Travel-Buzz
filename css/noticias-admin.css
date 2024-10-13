@@ -1,0 +1,105 @@
+main {
+    width: 100%;
+    padding-top: 200px;
+    color: white;
+}
+
+.noticiasCont{
+    width: 60%;
+    margin: auto;
+    margin-bottom: 150px;
+    margin-top: 100px;
+    padding: 50px;
+    background: #3c3e3e;
+    border-radius: 5px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: white;
+    
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #35424a;
+}
+
+button {
+    background-color: #F1C40F;;
+    color: #010101;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease; 
+}
+
+button:hover {
+    background-color: #1d1e1e;
+    color: #F1C40F;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: white;
+    color: #010101;
+}
+td{
+    padding: 30px;
+    border-bottom: 1px solid white;
+}
+
+.edit-btn, .delete-btn {
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.edit-btn {
+    background-color: #5cb85c;
+}
+
+.edit-btn:hover {
+    background-color: #4cae4c;
+}
+
+.delete-btn {
+    background-color: #d9534f;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}

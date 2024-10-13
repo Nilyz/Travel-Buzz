@@ -1,38 +1,29 @@
 <?php
-session_start();
-include 'db.php';
-include 'includes/header.php';
 
-// Verifica si el usuario es admin
-if (!isset($_SESSION['idUser']) || $_SESSION['rol'] !== 'admin') {
-    header('Location: index.php');
+include '../functions/auth.php';
+include '../functions/appointments.php';
+
+if (!isLoggedIn() || $_SESSION['rol'] !== 'admin') {
+    header('Location: login.php');
     exit();
 }
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-
-    // Obtener datos de la cita
-    $sql = "SELECT * FROM citas WHERE idCita = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $cita = $stmt->fetch(PDO::FETCH_ASSOC);
+    $citaId = $_GET['id'];
+    $cita = getAppointmentById($citaId);
 
     if (!$cita) {
         echo "<p>Cita no encontrada.</p>";
         exit();
     }
 
-    // Actualizar datos de la cita
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $idUser = $_POST['idUser'];
         $fecha_cita = $_POST['fecha_cita'];
         $motivo_cita = $_POST['motivo_cita'];
 
-        $sql = "UPDATE citas SET idUser = ?, fecha_cita = ?, motivo_cita = ? WHERE idCita = ?";
-        $stmt = $pdo->prepare($sql);
-        if ($stmt->execute([$idUser, $fecha_cita, $motivo_cita, $id])) {
-            echo "<p>Cita actualizada correctamente.</p>";
+        if (updateAppointment($citaId, $fecha_cita, $motivo_cita)) {
+            header('Location: citas-administracion.php');
+            exit();
         } else {
             echo "<p>Error al actualizar la cita.</p>";
         }
@@ -43,25 +34,31 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<h1>Editar Cita</h1>
-<form action="edit-cita.php?id=<?php echo $id; ?>" method="POST">
-    <select name="idUser" required>
-        <option value="">Selecciona un Usuario</option>
-        <?php
-        // Listar usuarios para la selección
-        $sql = "SELECT * FROM users_data";
-        $stmt = $pdo->query($sql);
-        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($usuarios as $usuario) {
-            echo "<option value=\"{$usuario['idUser']}\" " . ($usuario['idUser'] === $cita['idUser'] ? 'selected' : '') . ">{$usuario['nombre']}</option>";
-        }
-        ?>
-    </select>
-    <input type="date" name="fecha_cita" value="<?php echo htmlspecialchars($cita['fecha_cita']); ?>" required>
-    <textarea name="motivo_cita" required><?php echo htmlspecialchars($cita['motivo_cita']); ?></textarea>
-    <button type="submit">Actualizar Cita</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/headerFooter.css">
+    <link rel="stylesheet" href="../css/citas-admin.css">
+    <script src="../js/header.js" defer></script>
+    <title>Editar Cita</title>
+</head>
+<body>
+<?php include '../includes/header.php'; ?>
+<main>
+    <h1>Editar Cita</h1>
+    <form action="edit-cita.php?id=<?php echo $cita['idCita']; ?>" method="POST">
+        <label>Fecha de la Cita:</label>
+        <input type="datetime-local" name="fecha_cita" value="<?php echo htmlspecialchars($cita['fecha_cita']); ?>" required>
+        
+        <label>Motivo de la Cita:</label>
+        <input type="text" name="motivo_cita" value="<?php echo htmlspecialchars($cita['motivo_cita']); ?>" required>
 
-<?php
-include 'includes/footer.php';
-?>
+        <button type="submit">Actualizar Cita</button>
+    </form>
+</main>
+
+<?php include '../includes/footer.php'; ?>
+</body>
+</html>

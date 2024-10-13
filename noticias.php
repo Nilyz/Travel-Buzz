@@ -1,5 +1,4 @@
 <?php
-// noticias.php
 include 'functions/news.php';
 
 
@@ -13,6 +12,7 @@ $noticias = getAllNews();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/headerFooter.css"> 
     <link rel="stylesheet" href="css/noticias.css">
+    <script src="js/header.js" defer></script>
     <title>Document</title>
 </head>
 <body>

@@ -21,10 +21,11 @@ img{
 
 button{
     border: none;
+    font-weight: bold;
 }
 button a{
     text-decoration: none;
-    color: white;
+    font-weight: bold;
 }
 header {
     background: #35424a;
@@ -41,6 +42,7 @@ nav {
     align-items: center;
     padding: 0 100px 0 100px;
     position: fixed;
+    z-index: 1000;
 }
 
 .logo{
@@ -58,11 +60,11 @@ nav {
     height: 50%;
 }
 nav ul {
-    width: 30%;
     list-style: none;
     padding: 0;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 nav ul li {

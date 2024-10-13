@@ -7,7 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
+    height: 100vh; 
 }
 
 .login-form {
@@ -22,11 +22,11 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    color: #333;
 }
 
 h1 {
     margin-bottom: 20px;
-    color: #333;
 }
 
 form {
@@ -50,25 +50,25 @@ input{
 label {
     margin: 20px 0 10px 0;
     font-weight: bold;
-    color: #555;
 }
 
 
 button {
     margin-top: 50px;
-    background-color: #007bff;
-    color: white;
+    background-color: #F1C40F;
+    color: #1d1e1e;
     border: none;
     padding: 16px 10px 16px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
     width: 100%;
     font-size: 1em;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #1d1e1e;
+    color: #F1C40F;
 }
 
 .error-message {

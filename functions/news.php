@@ -1,5 +1,4 @@
 <?php
-// functions/news.php
 include 'db.php';
 
 function getAllNews() {

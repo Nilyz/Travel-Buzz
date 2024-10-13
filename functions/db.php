@@ -1,9 +1,9 @@
 <?php
-// db.php - Archivo de conexión a la base de datos
+//Conexión a la base de datos
 $host = 'localhost';
 $dbname = 'travelbuzz_db';
-$username = 'root';  // Cambia según tu configuración
-$password = '';      // Cambia según tu configuración
+$username = 'root';  
+$password = '';     
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);

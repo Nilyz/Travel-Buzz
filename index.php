@@ -7,6 +7,7 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/headerFooter.css"> 
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/header.js" defer></script>
 </head>
 <body>
 
